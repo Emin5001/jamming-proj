@@ -2,9 +2,65 @@ import logo from './logo.svg';
 import './App.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {SearchResults} from './Components/SearchResults/SearchResults';
+import {Playlist} from './Components/Playlist/Playlist';
 
 
-class App extends React.Component{
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      searchResults: [
+        {
+          name: 'Lion King on Ice',
+          artist: 'J-Cole',
+          album: 'N/A',
+          id: 1
+        },
+
+        {
+          name: 'Tuscan Leather',
+          artist:'Drake',
+          album: 'Never Was The Same',
+          id: 2,
+        }, 
+
+        {
+          name: 'Moonlight Sonata, First Movement',
+          artist: 'Beethoven',
+          album: '1800 Piano Bangers',
+          id: 3,
+        }
+      ],
+      playlistName: '',
+      playlistTracks: [
+        {
+          name: 'Sample Song Name',
+          artist:'Sample Artist Name',
+          album:'Sample Album Name',
+          id: 4,
+        }
+      ]
+    };
+    this.addTrack = this.addTrack.bind(this);
+    this.removeTrack = this.removeTrack.bind(this);
+  }
+
+  addTrack(track) {
+    if(this.state.playlistTracks.find(savedTrack => savedTrack.id === track.id)){
+      alert('You already have this song inside of your playlist.')
+      return;
+    } else {
+      this.state.playlistTracks.push(track);
+    }
+  }
+
+  removeTrack(track) {
+    this.setState({ //removes track that has the track.id
+      playlistTracks: this.state.playlistTracks.filter((tracksInPlaylist) => tracksInPlaylist.id !== track.id)
+    })
+  }
+
   render() {
     return (
       <div>
@@ -12,8 +68,15 @@ class App extends React.Component{
         <div className="App">
         {/*Add SearchBar Component */}
           <div className="App-playlist">
-        {/*Add SearchResults Component */}
-        {/*Add Playlist Component */}
+            <SearchResults
+            searchResults={this.state.searchResults} 
+            onAdd={this.addTrack}
+            />
+            <Playlist
+            playlistName={this.state.playlistName}
+            playlistTracks={this.state.playlistTracks}
+            onRemove={this.removeTrack}
+            />
           </div>
         </div>
       </div>
