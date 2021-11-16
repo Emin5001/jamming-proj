@@ -7,6 +7,11 @@ export class Playlist extends React.Component {
     constructor(props) {
         super(props);
     }
+
+    handleNameChange() {
+        
+    }
+
     render() {
         return (
             <div class="Playlist">
