@@ -84,7 +84,7 @@ class App extends React.Component {
         <h1>Ja<span className="highlight">mmm</span>ing</h1>
         <div className="App">
           <SearchBar
-          onSearch={this.props.search}
+          onSearch={this.search}
           />
           <div className="App-playlist">
             <SearchResults
