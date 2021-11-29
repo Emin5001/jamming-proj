@@ -9,7 +9,7 @@ export class Playlist extends React.Component {
         this.handleNameChange = this.handleNameChange.bind(this);
     }
 
-    handleNameChange(event) {
+    handleNameChange(event) { //changes name of playlist
         this.props.onNameChange(event.target.value);
     }
 

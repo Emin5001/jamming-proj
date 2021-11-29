@@ -5,6 +5,7 @@ import ReactDOM from 'react-dom';
 import {SearchResults} from './Components/SearchResults/SearchResults';
 import {Playlist} from './Components/Playlist/Playlist';
 import {SearchBar} from './Components/SearchBar/SearchBar';
+import {Spotify} from './util/Spotify';
 
 class App extends React.Component {
   constructor(props) {
@@ -75,7 +76,7 @@ class App extends React.Component {
   }
 
   search(term) {
-    console.log(term);
+    Spotify.search()
   }
 
   render() {

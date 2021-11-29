@@ -9,11 +9,11 @@ export class SearchBar extends React.Component {
         this.handleTermChange = this.handleTermChange.bind(this);
     }
 
-    search() {
+    search() { //creates a search with the term value 
         this.props.onSearch(this.state.term);
     }
 
-    handleTermChange(event) {
+    handleTermChange(event) { //if the term in the search bar is changed, change term in state.
         this.setState({
             term: event.target.value,
         });
