@@ -16,7 +16,6 @@ export class SearchResults extends React.Component {
                 tracks={this.props.searchResults}
                 onAdd={this.props.onAdd}
                 isRemoval={false}
-                
                 />
           </div>
         )
